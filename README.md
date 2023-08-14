@@ -4,7 +4,7 @@
 
 ## Setup
 
-Obtain an [AlphaVantage API Key](https://www.alphavantage.co/support/#api-key). A normal key should be fine, but alternatively you can use one of the prof's "premium" keys. Then create a file called ".env" and place it inside (like the following example):
+Obtain an [OpenWeather API Key](https://openweathermap.org/api). Then create a file called ".env" and place it inside (like the following example):
 
 ```sh
 # this is the ".env" file (in the root directory of the repo)
