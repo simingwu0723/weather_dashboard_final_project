@@ -1,0 +1,18 @@
+
+
+requests
+
+pandas
+
+plotly
+
+
+python-dotenv
+
+# for web app:
+flask # <--- ADD FOR WEB APP
+gunicorn # <--- ADD FOR HOSTING ON RENDER SERVER
+
+
+# for testing:
+pytest

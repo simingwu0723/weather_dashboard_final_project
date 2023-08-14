@@ -1,0 +1,17 @@
+{% extends "bootstrap_5_layout.html" %}
+{% set active_page = "weather_form" %}
+
+{% block content %}
+
+    <h2>Weather Form</h2>
+
+    <form action="/weather/dashboard" method="POST">
+
+        <label>Please enter the city name:</label>
+        <input type="text" name="city" placeholder="New York" value="New York">
+        <br>
+
+        <button class="btn btn-success">Search</button>
+    </form>
+
+{% endblock %}

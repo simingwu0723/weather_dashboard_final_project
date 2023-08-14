@@ -1,0 +1,16 @@
+{% extends "bootstrap_5_layout.html" %}
+{% set active_page = "weather_dashboard" %}
+
+{% block content %}
+
+    <div class="card" style="width: 25rem;" id="container">
+        <div class="card-body">
+        <h2 data-v-3e6e9f12="" style="margin-top: 0px;">{{city}},&nbsp {{country}}</h2>
+        <span data-v-3e6e9f12="" class="heading">{{temp}}°C,{{weather}}</span>
+        <div data-v-3e6e9f12="" class="bold">Feels like {{feels_like}}°C.  &nbsp{{desc}}. </div>
+        <div data-v-3e6e9f12="" class="bold">{{wind_speed}}m/s &nbsp{{pressure}}hPa. </div>
+        <div data-v-3e6e9f12="" class="bold">Humidity: {{humid}}%  &nbsp        Visibility:{{vis}}km. </div>
+        <div data-v-3e6e9f12="" class="bold">Max temp : {{temp_min}}°C  &nbsp Min temp : {{temp_max}}°C</div>
+        </div>
+    </div>
+{% endblock %}

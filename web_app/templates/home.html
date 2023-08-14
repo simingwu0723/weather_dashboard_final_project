@@ -1,0 +1,25 @@
+{% extends "bootstrap_5_layout.html" %}
+{% set active_page = "home" %}
+
+{% block content %}
+
+    <h1>Welcome to my final project.</h1>
+    
+    <!-- SEE: https://getbootstrap.com/docs/5.2/components/carousel/ -->
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://images.pexels.com/photos/10651587/pexels-photo-10651587.jpeg?cs=srgb&dl=pexels-lewis-ashton-10651587.jpg&fm=jpg&_gl=1*1e0kgab*_ga*MTA1ODU3NjgwNi4xNjkxODYzNzc2*_ga_8JE65Q40S6*MTY5MTkyNzk2MC4yLjEuMTY5MTkyODE0NC4wLjAuMA.." class="d-block w-100" alt="...">
+            </div>
+
+            <div class="carousel-item">
+                <img src="https://images.pexels.com/photos/12124014/pexels-photo-12124014.jpeg?cs=srgb&dl=pexels-selina-12124014.jpg&fm=jpg&_gl=1*1xbbxe0*_ga*MTA1ODU3NjgwNi4xNjkxODYzNzc2*_ga_8JE65Q40S6*MTY5MTkyNzk2MC4yLjEuMTY5MTkyODM0OS4wLjAuMA.." class="d-block w-100" alt="...">
+            </div>
+
+            <div class="carousel-item">
+                <img src="https://images.pexels.com/photos/12154273/pexels-photo-12154273.jpeg?cs=srgb&dl=pexels-selina-12154273.jpg&fm=jpg&_gl=1*1xbbxe0*_ga*MTA1ODU3NjgwNi4xNjkxODYzNzc2*_ga_8JE65Q40S6*MTY5MTkyNzk2MC4yLjEuMTY5MTkyODM0OS4wLjAuMA.." class="d-block w-100" alt="...">
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
