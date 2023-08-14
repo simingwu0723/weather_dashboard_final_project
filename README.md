@@ -9,7 +9,7 @@ Obtain an [AlphaVantage API Key](https://www.alphavantage.co/support/#api-key). 
 ```sh
 # this is the ".env" file (in the root directory of the repo)
 
-ALPHAVANTAGE_API_KEY="____________"
+WEATHER_API_KEY="____________"
 ```
 
 Create a virtual environment:
