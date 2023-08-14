@@ -25,8 +25,9 @@ def weather_dashboard():
     city_name = request_data.get("city") or "New York"
 
     try:
-        json_data = get_weather_data(city_name, WEATHER_API_KEY)
+        json_data, forecast_json_data = get_weather_data(city_name, WEATHER_API_KEY)
         print(json_data)
+        print(forecast_json_data['list'])
         data = convert_weather(json_data)
         return render_template("weather_dashboard.html", city=city_name.capitalize(), 
                             temp=data['temp'], 
@@ -39,7 +40,8 @@ def weather_dashboard():
                             desc=data['desc'],
                             wind_speed=data['wind_speed'],
                             pressure=data['pressure'],
-                            vis=data['vis']
+                            vis=data['vis'],
+                            forecast_data=forecast_json_data['list']
                             )
 
     except Exception as err:
@@ -62,7 +64,7 @@ def weather_api():
     city_name = url_params.get("city_name") or "New York"
 
     try:
-        json_data = get_weather_data(city_name, WEATHER_API_KEY)
+        json_data, forecast_json_data = get_weather_data(city_name, WEATHER_API_KEY)
         print(json_data)
         data = convert_weather(json_data)
         return {"city": city_name, "data": data}

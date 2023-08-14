@@ -6,11 +6,88 @@
     <div class="card" style="width: 25rem;" id="container">
         <div class="card-body">
         <h2 data-v-3e6e9f12="" style="margin-top: 0px;">{{city}},&nbsp {{country}}</h2>
-        <span data-v-3e6e9f12="" class="heading">{{temp}}°C,{{weather}}</span>
+        <span data-v-3e6e9f12="" class="heading">{{temp}}°C,&nbsp{{weather}}</span>
         <div data-v-3e6e9f12="" class="bold">Feels like {{feels_like}}°C.  &nbsp{{desc}}. </div>
         <div data-v-3e6e9f12="" class="bold">{{wind_speed}}m/s &nbsp{{pressure}}hPa. </div>
         <div data-v-3e6e9f12="" class="bold">Humidity: {{humid}}%  &nbsp        Visibility:{{vis}}km. </div>
         <div data-v-3e6e9f12="" class="bold">Max temp : {{temp_min}}°C  &nbsp Min temp : {{temp_max}}°C</div>
         </div>
     </div>
+
+
+    <table class="table table-hover table-responsive caption-top">
+        <caption>Five Days' Data</caption>
+        <thead>
+            <tr>
+                <th scope="col">Date</th>
+                <th scope="col">Weather</th>
+                <th scope="col">Temp</th>
+                <th scope="col">Humid</th>
+                <th scope="col">Desc</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        <!--
+            JINJA FOR LOOP
+            https://jinja.palletsprojects.com/en/3.1.x/templates/
+        -->
+        {% for row in forecast_data %}
+            <tr>
+                <td>{{ row["dt_txt"] }}</td>
+                <td>{{ row["weather"][0]["main"] }}</td>
+                <td>{{ row["main"]["temp"] }}°C</td>
+                <td>{{ row["main"]["humidity"] }}%</td>
+                <td>{{ row["weather"][0]["description"] }}</td>
+            </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+    
+        <!DOCTYPE html>
+    <html>
+    <head>
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    </head>
+    <body>
+        <div id="chart-container"></div>
+        <script type="text/javascript">
+            // Sample forecast data (replace with your actual data)
+            var forecastData = {{ forecast_data | tojson | safe }};
+
+
+            // Extract dates and temperatures from forecast data
+            var forecastDates = forecastData.map(entry => entry.dt_txt);
+            var forecastTemperatures = forecastData.map(entry => entry.main.temp);
+
+            // Visualize the forecast data
+            var forecastSeries = {
+                x: forecastDates,
+                y: forecastTemperatures,
+                mode: "lines+markers",
+                name: "Temperature Forecast (°C)"
+            };
+
+            var data = [forecastSeries];
+
+            var layout = {
+                title: "Temperature Forecast (Within 5 Days)",
+                height: 600,
+                xaxis: {
+                    title: "Date and Time"
+                },
+                yaxis: {
+                    title: "Temperature (°C)"
+                }
+            };
+
+            // Render the chart
+            Plotly.newPlot("chart-container", data, layout, { responsive: true });
+        </script>
+    </body>
+    </html>
+
+    
+
 {% endblock %}

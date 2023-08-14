@@ -32,8 +32,10 @@ def convert_weather(json_data):
 
 def get_weather_data(city, api):
     url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&units=metric&appid={api}"
+    url_forecast = f"https://api.openweathermap.org/data/2.5/forecast?q={city}&units=metric&appid={api}"
     jsonf = requests.get(url)
-    return jsonf.json()
+    forecast_jsonf = requests.get(url_forecast)
+    return jsonf.json(), forecast_jsonf.json()
 
 if __name__ == "__main__":
 
@@ -42,7 +44,7 @@ if __name__ == "__main__":
     city_name = input("Please input a city (default: 'New York'): ") or "New York"
     print("CITY:", city_name)
 
-    json_data = get_weather_data(city_name, WEATHER_API_KEY)
+    json_data, forecast_json_data = get_weather_data(city_name, WEATHER_API_KEY)
     weather_data = convert_weather(json_data)
 
     print(weather_data)
