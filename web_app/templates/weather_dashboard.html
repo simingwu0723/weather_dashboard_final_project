@@ -22,8 +22,9 @@
                 <th scope="col">Date</th>
                 <th scope="col">Weather</th>
                 <th scope="col">Temp</th>
-                <th scope="col">Humid</th>
-                <th scope="col">Desc</th>
+                <th scope="col">Humidity</th>
+                <th scope="col">Wind Speed</th>
+                <th scope="col">Description</th>
             </tr>
         </thead>
         <tbody>
@@ -38,6 +39,7 @@
                 <td>{{ row["weather"][0]["main"] }}</td>
                 <td>{{ row["main"]["temp"] }}°C</td>
                 <td>{{ row["main"]["humidity"] }}%</td>
+                <td>{{ row["wind"]["speed"] }}m/s</td>
                 <td>{{ row["weather"][0]["description"] }}</td>
             </tr>
         {% endfor %}
